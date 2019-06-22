@@ -1,0 +1,12 @@
+Boards
+<ul>
+  {{#each model as |board|}}
+    <li >{{#link-to "boards.details" board.id}}{{board.id}} - {{board.name}}{{/link-to}}</li>
+  {{/each}}
+</ul>
+<div {{action "addBoard"}}>
+  Add Boards
+</div>
+
+{{outlet}}
+

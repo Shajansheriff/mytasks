@@ -1,0 +1,27 @@
+{{model.name}}
+<div class="ui">
+  <nav class="navbar app">App bar</nav>
+  <nav class="navbar board">Board bar</nav>
+  {{#sortable-objects class="lists" sortableObjectList=model.lists sortEndAction=(action 'listSortEndAction') sortingScope='a'}}
+    {{#each model.lists as |list|}}
+      {{#draggable-object class="list" content=list overrideClass='sortObject' isSortable=true sortingScope='a'}}
+        <header>{{list.name}}</header>
+        {{#sortable-objects tagName="ul" sortableObjectList=list.cards sortEndAction=(action 'cardSortEndAction') sortingScope='b'}}
+          {{#each list.cards as |card|}}
+            {{#draggable-object
+              tagName="li"
+              content=card
+              overrideClass='sortObject'
+              isSortable=true
+              sortingScope='b'
+              data-draggable-object-id=card.id
+            }}
+            {{card.name}}
+            {{/draggable-object}}
+          {{/each}}
+        {{/sortable-objects}}
+        <footer>Add a card...</footer>
+      {{/draggable-object}}
+    {{/each}}
+  {{/sortable-objects}}
+</div>
