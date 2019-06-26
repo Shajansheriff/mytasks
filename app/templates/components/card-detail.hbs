@@ -1,0 +1,19 @@
+{{!-- {{yield}} --}}
+<div class="card-detail_container">
+  <div class="card-detail_left-side">
+    <div class="card-detail_item text-lg mb-2">{{card.name}}</div>
+    <div class="card-detail-item">{{textarea row="3" placeholder="Description" class="h-20 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"}}</div>
+    <div class="card-detail_comment-section mt-3">
+      <div class="text-lg font-semibold mb-2">
+        <span class="pr-2">{{fa-icon "comment"}}</span>Add Comment
+      </div>
+      <div class="card-detail-item">{{textarea placeholder="write a comment" row="5" class="h-32 mb-2 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"}}</div>
+      <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        Save
+      </button>
+    </div>
+  </div>
+  <div class="card-detail_right-side">
+    <div class="card-detail_item">{{fa-icon "trash-alt"}} Delete</div>
+  </div>
+</div>

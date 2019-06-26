@@ -12,5 +12,8 @@ export default Mirage.Factory.extend({
   },
   desc() {
     return faker.lorem.sentence();
+  },
+  tags() {
+    return ['#personal', '#todo', '#productivity' ]
   }
 });

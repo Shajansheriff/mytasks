@@ -1,8 +1,14 @@
+@import "ember-modal-dialog/ember-modal-structure.css";
+@import "ember-modal-dialog/ember-modal-appearance.css";
+
 body {
   margin: 0;
   font-family: 'Roboto';
   font-size: 14px;
   line-height: 1.3em;
+}
+.body-container {
+  padding: 20px;
 }
 
 .ui {
@@ -82,4 +88,42 @@ body {
   margin: -10px 0 10px -10px;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
+}
+textarea {
+  margin-bottom: 0;
+}
+.card-name-field {
+  background: #fff;
+}
+
+.close-add-card {
+  font-size: 21px;
+  padding: 0 10px;
+}
+
+.card-detail_container {
+  display: flex;
+  width: 600px;
+  max-width: 700px;
+  padding: 10px;
+}
+.card-detail_left-side {
+  width: 80%;
+  padding: 0 10px;
+}
+.card-detail_right-side {
+  width: 20%;
+  text-align: right;
+}
+.card-detail_item {
+  padding: 5px;
+}
+.card-detail_comment-section {
+  margin-top: 15px;
+}
+.add-card-container {
+  padding-top: 5px
+}
+button {
+  line-height: 16px;
 }
