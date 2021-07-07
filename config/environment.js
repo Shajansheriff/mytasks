@@ -14,6 +14,11 @@ module.exports = function(environment) {
       EXTEND_PROTOTYPES: {
         // Prevent Ember Data from overriding Date.parse.
         Date: false
+      },
+      fontawesome: {
+        icons: {
+          'free-solid-svg-icons': 'all'
+        }
       }
     },
 
@@ -29,6 +34,10 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV['ember-cli-mirage'] = {
+      discoverEmberDataModels: false,
+      enabled: true
+    };
   }
 
   if (environment === 'test') {

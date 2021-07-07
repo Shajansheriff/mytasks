@@ -1,0 +1,41 @@
+<div class="ui">
+<nav class="navbar app">{{#link-to "application"}}MyTasks{{/link-to}}</nav>
+<nav class="navbar board">{{model.name}}</nav>
+{{!-- <nav class="navbar board"></nav> --}}
+{{#unless model.isPending}}
+  {{#sortable-objects class="lists" sortableObjectList=lists sortEndAction=(action "listSortEndAction") sortingScope="a"}}
+    {{#each model.lists as |list|}}
+      {{#draggable-object class="list" content=model.list overrideClass="sortObject" isSortable=true sortingScope="a"}}
+        <header>{{list.name}} <span class="float-right">{{fa-icon "trash-alt"}}</span></header>
+        {{#sortable-objects tagName="ul" sortableObjectList=list.cards sortEndAction=(action "cardSortEndAction") sortingScope="b"}}
+          {{#each list.cards as |card|}}
+            {{#draggable-object
+              tagName="li"
+              content=card
+              overrideClass="sortObject"
+              isSortable=true
+              sortingScope="b"
+              data-draggable-object-id=card.id
+            }}
+              <div {{action "openCardDetail" card}}>{{card.name}}</div>
+            {{/draggable-object}}
+          {{/each}}
+        {{/sortable-objects}}
+        <footer>{{add-card cards=list.cards}}</footer>
+      {{/draggable-object}}
+    {{/each}}
+  {{/sortable-objects}}
+{{else}}
+  {{ember-spinner lines=11 length=16 radius=30 width=8 rotate=10 speed="1.1" color="#ffc52e"}}
+{{/unless}}
+</div>
+
+{{#if canShowCardDetail}}
+  {{#modal-dialog
+    onClose=(action "toggleCardDetail")
+    targetAttachment="center"
+    translucentOverlay=true
+  }}
+    {{card-detail card=currentCard}}
+  {{/modal-dialog}}
+{{/if}}

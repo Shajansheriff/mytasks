@@ -1,0 +1,11 @@
+{{#if canShowForm}}
+  <div class="add-card-container">
+    {{textarea placeholder="Add Content" id="name" value=this.name row="3" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline card-name-field"}}
+    <div class="flex items-center text-center pb-2">
+      <button  class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" {{action "onAdd"}}>Add Card</button>
+      <a class="close-add-card" {{action "closeCard"}} title="close">{{fa-icon "times"}}</a>
+    </div>
+  </div>
+{{else}}
+  <div {{action "toggleForm"}}>Add Card</div>
+{{/if}}
